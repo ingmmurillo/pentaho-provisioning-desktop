@@ -1,0 +1,73 @@
+---
+- name: copy Pentaho Data Integration (PDI) v5.4
+  copy:
+    src: 'pdi-ce-5.4.0.1-130.zip'
+    dest: '/opt/pentaho/'
+    owner: pentaho
+    group: pentaho
+    mode: 0644
+
+# - name: download Pentaho Data Integration v5.4
+#   when: not pdi.stat.exists
+#   get_url:
+#     url: 'http://ufpr.dl.sourceforge.net/project/pentaho/Data%20Integration/5.4/pdi-ce-5.4.0.1-130.zip'
+#     dest: /opt/pentaho/pdi-ce-5.4.0.1-130.zip
+#     timeout: 60
+#     checksum: sha1:ccd9658ebfac4a3384e089f33a37e30360ab41cd
+
+- name: unarchive PDI v5.4
+  unarchive:
+    copy: no
+    src: /opt/pentaho/pdi-ce-5.4.0.1-130.zip
+    dest: /opt/pentaho
+    creates: /opt/pentaho/data-integration/spoon.sh
+
+- name: copy Pentaho BI Server (BI-SERVER) v5.4
+  copy:
+    src: 'biserver-ce-5.4.0.1-130.zip'
+    dest: '/opt/pentaho/'
+    owner: pentaho
+    group: pentaho
+    mode: 0644
+
+# - name: download Pentaho BI Server v5.4
+#   when: not biserver.stat.exists
+#   get_url:
+#     url: 'http://ufpr.dl.sourceforge.net/project/pentaho/Business%20Intelligence%20Server/5.4/biserver-ce-5.4.0.1-130.zip'
+#     dest: /opt/pentaho/biserver-ce-5.4.0.1-130.zip
+#     force: no
+#     timeout: 60
+#     checksum: sha1:bc15f904a8bab1c776c8c26bf93ef775b79cb1d7
+
+- name: unarchive BI-SERVER v5.4
+  unarchive:
+    copy: no
+    src: /opt/pentaho/biserver-ce-5.4.0.1-130.zip
+    dest: /opt/pentaho
+    creates: /opt/pentaho/biserver-ce/start-pentaho.sh
+
+- name: copy Pentaho Schema Workbench (PSW) v3.10
+  copy:
+    src: 'psw-ce-3.10.0.1-130.zip'
+    dest: '/opt/pentaho/'
+    owner: pentaho
+    group: pentaho
+    mode: 0644
+
+- name: unarchive PSW v3.10
+  unarchive:
+    copy: no
+    src: /opt/pentaho/psw-ce-3.10.0.1-130.zip
+    dest: /opt/pentaho
+    creates: /opt/pentaho/schema-workbench/workbench.sh
+
+- name: copy PostgreSQL JDBC driver to PSW
+  copy:
+    src: 'postgresql-9.3-1102-jdbc4.jar'
+    dest: '/opt/pentaho/schema-workbench/drivers'
+    owner: pentaho
+    group: pentaho
+    mode: 0644
+
+- name: set pentaho user as owner
+  file: path=/opt/pentaho state=directory owner=pentaho group=pentaho recurse=yes

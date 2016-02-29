@@ -1,0 +1,15 @@
+---
+- name: install ubuntu packages
+  apt: name=python-apt
+
+- name: add repository to install Oracle JDKv7
+  apt_repository: repo='ppa:webupd8team/java'
+
+- name: update apt packages
+  shell: apt-get update
+
+- name: auto accept oracle jdk license
+  shell: echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+
+- name: install Oracle JDKv7
+  shell: apt-get install -y oracle-java7-installer ca-certificates
