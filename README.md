@@ -4,6 +4,7 @@ The following code automates the procedure to install and configure on an operat
 * [**Oracle JDKv7**](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [**PostgreSQL Server Database**](http://www.postgresql.org/download/)
 * [**SQL Power Architect v1.0.8 Community Edition**](http://www.sqlpower.ca/page/architect_download_os)
++ [**DataCleaner v4.5**](https://sourceforge.net/projects/datacleaner/)
 * [**Pentaho Data Integration v5.4**](https://sourceforge.net/projects/pentaho/files/Data%20Integration/5.4/)
 * [**Pentaho BI Server v5.4**](http://sourceforge.net/projects/pentaho/files/Business%20Intelligence%20Server/5.4/)
 * [**Pentaho Schema Workbench v3.10.0.1**](https://sourceforge.net/projects/mondrian/files/schema%20workbench/3.10.0/)
