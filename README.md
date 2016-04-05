@@ -10,7 +10,7 @@ The following code automates the procedure to install and configure on an operat
 * [**Pentaho Schema Workbench v3.10.0.1**](https://sourceforge.net/projects/mondrian/files/schema%20workbench/3.10.0/)
 
 
-This **IAC** (Infrastructure as Code) allows you to have **Pentaho Tools** on an Ubuntu Desktop, it
+This **[IAC](http://martinfowler.com/bliki/InfrastructureAsCode.html)** (Infrastructure as Code) allows you to have **Pentaho Tools** on an Ubuntu Desktop, it
 is ideal for start developing with the tools from the stack.
 
 Before using this code, make sure you have installed the following:

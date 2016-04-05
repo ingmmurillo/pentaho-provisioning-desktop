@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.8">
+ <project-name>MODELO_DIMENSIONAL</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="data_model" />
+   <property key="Connection Type" value="PostgreSQL" />
+   <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/data_model" />
+   <property key="UID" value="postgres" />
+   <property key="PWD" value="postgres" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+  </data-source>
+  <data-source id="DS0">
+   <property key="Connection Type" value="PostgreSQL" />
+   <property key="Logical" value="data_model" />
+   <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/data_model" />
+   <property key="UID" value="postgres" />
+   <property key="PWD" value="postgres" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+  <database id="DB0" populated="true" UUID="191ec7a3-c298-4b87-9ccb-57d514d77eb9" dbcs-ref="DS0" name="data_model" physicalName="data_model" >
+   <catalog id="CAT1" populated="false" UUID="c0ae3cb4-8eeb-4bb4-87cd-ef4e77e81681" name="data_model" nativeTerm="database" physicalName="data_model" >
+   </catalog>
+   <relationships>
+   </relationships>
+  </database>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB3" populated="true" UUID="03256a4c-c488-4c1a-b3b3-f44bbb97da82" name="DIM_FECHA" objectType="TABLE" physicalName="DIM_FECHA" >
+   <remarks></remarks>
+   <folder id="FOLTAB31" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL4" populated="true" UUID="17a0f388-a4ac-46cc-b386-479f442995c9" autoIncrement="false" autoIncrementSequenceName="DIM_FECHA_SK_FECHA_seq" defaultValue="" name="SK_FECHA" nullable="0" physicalName="SK_FECHA" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL5" populated="true" UUID="37c48dc9-d4a9-403d-b25a-2bc24311c4c3" autoIncrement="false" autoIncrementSequenceName="DIM_FECHA_ANIO_seq" defaultValue="" name="ANIO" nullable="0" physicalName="ANIO" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB33" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB32" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB34" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX6" populated="true" UUID="955f6fa3-c11f-44bd-86df-20356bba6639" clustered="false" name="SK_FECHA" physicalName="sk_fecha" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC7" populated="true" UUID="052990e7-0331-4c19-96ab-92591b749c43" ascendingOrDescending="UNSPECIFIED" column-ref="COL4" name="SK_FECHA" physicalName="SK_FECHA" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB8" populated="true" UUID="927b2296-b0e9-48a3-8415-f297721ca857" name="FACT_DEUDA_EXTERNA" objectType="TABLE" physicalName="FACT_DEUDA_EXTERNA" >
+   <remarks></remarks>
+   <folder id="FOLTAB81" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL9" populated="true" UUID="3321210a-3d8e-4930-ae2a-5a78018ecb30" autoIncrement="false" autoIncrementSequenceName="DIM_FECHA_SK_FECHA_seq" defaultValue="" name="SK_FECHA" nullable="0" physicalName="SK_FECHA" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL10" populated="true" UUID="ee6abf46-159d-4976-8e7a-000a6f3caafa" autoIncrement="false" autoIncrementSequenceName="DIM_PAIS_SK_PAIS_seq" defaultValue="" name="SK_PAIS" nullable="0" physicalName="SK_PAIS" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL11" populated="true" UUID="21a9871b-72ea-490e-a2d0-cd7fc202d6a0" autoIncrement="false" autoIncrementSequenceName="FACT_DEUDA_EXTERNA_DEUDA_EXTERNA_ACUMULADA_seq" defaultValue="" name="DEUDA_EXTERNA_ACUMULADA" nullable="0" physicalName="DEUDA_EXTERNA_ACUMULADA" precision="18" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB83" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB82" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB84" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX12" populated="true" UUID="f35fd1c1-cc79-4ad5-bb0f-9427d315bdb7" clustered="false" name="SK_DEUDA_EXTERNA" physicalName="SK_DEUDA_EXTERNA" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB13" populated="true" UUID="5fcda6ff-934c-47da-a2d7-f7273d151865" name="DIM_PAIS" objectType="TABLE" physicalName="DIM_PAIS" >
+   <remarks></remarks>
+   <folder id="FOLTAB131" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL14" populated="true" UUID="e4008d74-c3a4-475c-81e8-9eb50063e76f" autoIncrement="false" autoIncrementSequenceName="DIM_PAIS_SK_PAIS_seq" defaultValue="" name="SK_PAIS" nullable="0" physicalName="SK_PAIS" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="85456016-7fcf-424b-af22-1a5b87da9951" autoIncrement="false" autoIncrementSequenceName="DIM_PAIS_CODIGO_seq" defaultValue="&apos;N/A&apos;" name="CODIGO" nullable="0" physicalName="CODIGO" precision="3" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL16" populated="true" UUID="ed341d5a-236e-4dc7-8e2f-522e6cfc9ddc" autoIncrement="false" autoIncrementSequenceName="DIM_PAIS_NOMBRE_seq" defaultValue="&apos;DESCONOCIDO&apos;" name="NOMBRE" nullable="0" physicalName="NOMBRE" precision="64" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL17" populated="true" UUID="bf02dd15-94f4-4dc5-9b96-52ef47a2b6ed" autoIncrement="false" autoIncrementSequenceName="DIM_PAIS_REGION_seq" defaultValue="&apos;DESCONOCIDO&apos;" name="REGION" nullable="0" physicalName="REGION" precision="64" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL18" populated="true" UUID="88efcb68-7267-42b7-85a0-0b603244acaf" autoIncrement="false" autoIncrementSequenceName="DIM_PAIS_VALIDO_DESDE_seq" defaultValue="" name="VALIDO_DESDE" nullable="1" physicalName="VALIDO_DESDE" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL19" populated="true" UUID="2275fe85-3c71-4ffc-9ab1-7df7f3053a3e" autoIncrement="false" autoIncrementSequenceName="DIM_PAIS_VALIDO_HASTA_seq" defaultValue="" name="VALIDO_HASTA" nullable="1" physicalName="VALIDO_HASTA" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL20" populated="true" UUID="23ddc3d8-2051-4574-9764-2e93e9e24a43" autoIncrement="false" autoIncrementSequenceName="DIM_PAIS_VERSION_seq" defaultValue="" name="VERSION" nullable="0" physicalName="VERSION" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB133" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB132" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB134" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX21" populated="true" UUID="6cbd17ac-4cd7-42cf-9430-8283db003672" clustered="false" name="SK_PAIS" physicalName="sk_pais" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC22" populated="true" UUID="35360423-0e74-4b3f-b19f-8ce45faf5795" ascendingOrDescending="UNSPECIFIED" column-ref="COL14" name="SK_PAIS" physicalName="SK_PAIS" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL23" populated="true" UUID="06d32232-54b5-41de-90ec-cfd50548fdfb" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="DIM_FECHA_FACT_DEUDA_EXTERNA_fk" physicalName="dim_fecha_fact_deuda_externa_fk" pk-table-ref="TAB3" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP24" populated="true" UUID="ddf65af3-f17f-47f5-a56e-ee6d4d554c09" fk-column-ref="COL9" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL4" />
+   </relationship>
+   <relationship id="REL25" populated="true" UUID="01948d07-7a68-48c1-87cd-815003fe4cef" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="DIM_PAIS_FACT_DEUDA_EXTERNA_fk" physicalName="dim_pais_fact_deuda_externa_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP26" populated="true" UUID="1d703705-455e-4c03-b388-26fc0340b391" fk-column-ref="COL10" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB3" x="111" y="80" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB8" x="384" y="269" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB13" x="279" y="451" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL23" pkConnection="0.8702290076335878" fkConnection="0.2222222222222222" rLineColor="0x4c4c4c" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL25" pkConnection="0.5387755102040817" fkConnection="0.48426150121065376" rLineColor="0x4c4c4c" pkLabelText="" fkLabelText="" orientation="72"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>
