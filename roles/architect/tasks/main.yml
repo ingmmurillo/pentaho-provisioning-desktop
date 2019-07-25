@@ -1,29 +1,33 @@
 ---
-- name: create pentaho Unix's user
-  user: name=pentaho state=present
-
-- name: create directory to copy pentaho and related tools
-  file: path=/opt/pentaho state=directory owner=pentaho group=pentaho
-
-- name: copy SQL Power Architect v1.8
+- name: Copy SQL Power Architect
   copy:
-    src: 'SQL-Power-Architect-generic-jdbc-1.0.8.tar.gz'
-    dest: '/opt/pentaho/'
+    src: 'tools/SQL-Power-Architect-generic-jdbc-1.0.8.tar.gz'
+    dest: '/opt/tools/'
     owner: pentaho
     group: pentaho
     mode: 0644
 
-# - name: download SQL Power Architect v1.0.8
-#   when: not architect.stat.exists
-#   get_url:
-#     url: 'http://download.sqlpower.ca/architect/1.0.8/community/SQL-Power-Architect-generic-jdbc-1.0.8.tar.gz'
-#     dest: /tmp/SQL-Power-Architect-generic-jdbc-1.0.8.tar.gz
-#     force: no
-#     checksum: sha1:3419c12b21a3cc151359563921c220087a64f251
-
-- name: unarchive SQL Power Architect v1.0.8
+- name: Unarchive SQL Power Architect
   unarchive:
     copy: no
-    src: /opt/pentaho/SQL-Power-Architect-generic-jdbc-1.0.8.tar.gz
-    dest: /opt/pentaho
-    creates: /opt/pentaho/architect-1.0.8/architect.jar
+    src: /opt/tools/SQL-Power-Architect-generic-jdbc-1.0.8.tar.gz
+    dest: /opt/tools
+    creates: /opt/tools/architect-1.0.8/architect.jar
+
+- name: Remove default JDBC Driver
+  file:
+    state: absent
+    path: "/opt/tools/architect-1.0.8/jdbc/postgresql-8.2-506.jdbc3.jar"
+
+- name: Copy Uptaded JDBC Driver
+  copy:
+    src: 'jdbc/postgresql-42.2.6.jar'
+    dest: '/opt/tools/architect-1.0.8/jdbc'
+    owner: pentaho
+    group: pentaho
+    mode: 0644
+
+- name: Remove SQL Power Architect zip file
+  file:
+    state: absent
+    path: "/opt/tools/SQL-Power-Architect-generic-jdbc-1.0.8.tar.gz"

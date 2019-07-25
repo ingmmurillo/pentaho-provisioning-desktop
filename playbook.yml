@@ -1,8 +1,24 @@
 ---
 - hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: Installing Repository for Java 8 in Ubuntu
+      apt_repository: repo='ppa:openjdk-r/ppa'
+    - name: Set Ecuador's TimeZone
+      timezone:
+            name: America/Guayaquil
+    
   roles:
-      - { role: java, sudo: yes }
-      - { role: postgres, sudo: yes }
-      - { role: architect, sudo: yes }
-      - { role: datacleaner, sudo: yes }
-      - { role: pentaho, sudo: yes }
+    - role: geerlingguy.java
+      when: "ansible_os_family == 'Debian'"
+      java_packages:
+        - openjdk-8-jdk
+    - role: geerlingguy.postgresql
+    - role: base
+    - role: pgadmin
+    - role: architect
+    - role: datacleaner
+    - role: squirrel
+    - role: pentaho

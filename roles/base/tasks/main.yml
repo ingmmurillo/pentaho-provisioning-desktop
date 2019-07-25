@@ -1,0 +1,35 @@
+---
+- name: Create pentaho Unix's user
+  user: name=pentaho state=present
+
+- name: Create tools directory
+  file: path=/opt/tools state=directory owner=pentaho group=pentaho
+
+- name: Create pentaho directory
+  file: path=/opt/pentaho state=directory owner=pentaho group=pentaho
+
+- name: Create workspace directory
+  file: path=/opt/sistema_dwh_bi state=directory owner=pentaho group=pentaho
+
+- name: Install SWT Libraries
+  apt: name=libwebkitgtk-1.0-0
+  
+- name: Copy sistema_dwh_bi
+  copy:
+    src: '22MAR2019-13ABR2019.zip'
+    dest: '/opt/sistema_dwh_bi/22MAR2019-13ABR2019.zip'
+    owner: pentaho
+    group: pentaho
+    mode: 0644
+
+- name: Unarchive sistema_dwh_bi
+  unarchive:
+    copy: no
+    src: /opt/sistema_dwh_bi/22MAR2019-13ABR2019.zip
+    dest: /opt/
+    creates: /opt/sistema_dwh_bi/src
+  
+- name: Remove sistema_dwh_bi zip file
+  file:
+    state: absent
+    path: "/opt/sistema_dwh_bi/22MAR2019-13ABR2019.zip"

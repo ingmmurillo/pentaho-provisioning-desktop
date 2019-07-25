@@ -1,15 +1,20 @@
 ---
-- name: copy DataCleaner v4.5
+- name: Copy DataCleaner
   copy:
-    src: 'DataCleaner-all.zip'
-    dest: '/opt/pentaho/'
+    src: 'tools/DataCleaner-5.7.0.zip'
+    dest: '/opt/tools/'
     owner: pentaho
     group: pentaho
     mode: 0644
 
-- name: unarchive DataCleaner v4.5
+- name: Unarchive DataCleaner
   unarchive:
     copy: no
-    src: /opt/pentaho/DataCleaner-all.zip
-    dest: /opt/pentaho
-    creates: /opt/pentaho/DataCleaner/datacleaner.sh
+    src: /opt/tools/DataCleaner-5.7.0.zip
+    dest: /opt/tools
+    creates: /opt/tools/DataCleaner/datacleaner.sh
+
+- name: Remove DataCleaner zip file
+  file:
+    state: absent
+    path: "/opt/tools/DataCleaner-5.7.0.zip"

@@ -1,0 +1,28 @@
+---
+- name: Copy SQuirreL
+  copy:
+    src: 'tools/squirrelsql-3.9.1-standard.zip'
+    dest: '/opt/tools/'
+    owner: pentaho
+    group: pentaho
+    mode: 0644
+
+- name: Unarchive SQuirreL
+  unarchive:
+    copy: no
+    src: /opt/tools/squirrelsql-3.9.1-standard.zip
+    dest: /opt/tools
+    creates: /opt/tools/squirrelsql-3.9.1-standard/squirrel-sql.jar
+
+- name: Copy Uptaded JDBC Driver
+  copy:
+    src: 'jdbc/postgresql-42.2.6.jar'
+    dest: '/opt/tools/squirrelsql-3.9.1-standard/lib'
+
+- name: Remove SQuirreL zip file
+  file:
+    state: absent
+    path: "/opt/tools/squirrelsql-3.9.1-standard.zip"
+
+- name: Set squirrel-sql.sh executable
+  command: chmod +x /opt/tools/squirrelsql-3.9.1-standard/squirrel-sql.sh

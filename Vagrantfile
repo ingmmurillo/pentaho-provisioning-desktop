@@ -4,14 +4,14 @@
 ANSIBLE_GROUPS = {"vagrant" => ["default"]}
 
 Vagrant.configure(2) do |config|
-  #Vagrant Box https://atlas.hashicorp.com/boxes/search
-  config.vm.box = "box-cutter/ubuntu1404-desktop"
+  #config.vm.box = "Microsoft/EdgeOnWindows10"
+  config.vm.box = "chenhan/ubuntu-desktop-18.04"
   config.cache.scope = :box if Vagrant.has_plugin?("vagrant-cachier")
 
   #Hardware Specifications
   config.vm.provider "virtualbox" do |v|
-    v.name = "DataToolsBoxUbuntuDesktop"
-    v.memory = 2048
+    v.name = "Curso_DWH_BI_Workstation"
+    v.memory = 4096
     v.cpus = 2
   end
 
